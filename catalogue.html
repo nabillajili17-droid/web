@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catalogue - BookNomad</title>
+  <link rel="stylesheet" href="styleCatalogue.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">📚 BookNomad</div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a class="active" href="catalogue.html">Catalogue</a>
+      <a href="Connexion.html">Connexion</a>
+      <a href="Inscription.html">Inscription</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Catalogue</h1>
+      <p>
+        Découvrez des livres, filtrez par catégorie, recherchez un titre
+        et ajoutez vos favoris.
+      </p>
+    </div>
+
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="Rechercher un livre (titre / auteur)..." />
+      <select id="categorySelect">
+        <option value="all">Toutes les catégories</option>
+        <option value="roman">Roman</option>
+        <option value="science">Science</option>
+        <option value="histoire">Histoire</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="dev">Informatique</option>
+      </select>
+
+      <div class="chips">
+        <button type="button" class="chip active" data-filter="all">Tout</button>
+        <button type="button" class="chip" data-filter="top">Top</button>
+        <button type="button" class="chip" data-filter="new">Nouveautés</button>
+        <button type="button" class="chip" data-filter="free">Gratuits</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat">
+      <div class="num" id="countAll">0</div>
+      <div class="label">Livres</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="countShown">0</div>
+      <div class="label">Affichés</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="countFav">0</div>
+      <div class="label">Favoris</div>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <main class="grid" id="booksGrid">
+
+    <!-- CARTE LIVRE -->
+    <article class="card" data-title="L'Écho des dunes" data-author="S. Amari" data-category="roman" data-tag="top">
+      <div class="badge">Top</div>
+      <div class="cover">
+        <div class="cover-art">📖</div>
+      </div>
+      <div class="info">
+        <h3>L'Écho des dunes</h3>
+        <p class="meta">S. Amari • Roman</p>
+        <p class="desc">
+          Un voyage poétique à travers le désert, entre secrets anciens et destinées croisées.
+        </p>
+        <div class="actions">
+          <button class="btn" type="button">Voir</button>
+          <button class="btn ghost favBtn" type="button" aria-label="Ajouter aux favoris">♡</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-title="Micro-mondes" data-author="N. Lemaire" data-category="science" data-tag="new">
+      <div class="badge new">Nouveau</div>
+      <div class="cover"><div class="cover-art">🧪</div></div>
+      <div class="info">
+        <h3>Micro-mondes</h3>
+        <p class="meta">N. Lemaire • Science</p>
+        <p class="desc">
+          Comprendre l’invisible : bactéries, cellules et mystères du vivant expliqués simplement.
+        </p>
+        <div class="actions">
+          <button class="btn" type="button">Voir</button>
+          <button class="btn ghost favBtn" type="button">♡</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-title="Chroniques d'Argile" data-author="M. Rami" data-category="histoire" data-tag="free">
+      <div class="badge free">Gratuit</div>
+      <div class="cover"><div class="cover-art">🏛️</div></div>
+      <div class="info">
+        <h3>Chroniques d'Argile</h3>
+        <p class="meta">M. Rami • Histoire</p>
+        <p class="desc">
+          Des tablettes antiques aux empires oubliés : une plongée vivante dans l’histoire.
+        </p>
+        <div class="actions">
+          <button class="btn" type="button">Voir</button>
+          <button class="btn ghost favBtn" type="button">♡</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-title="La Forêt des Lunes" data-author="E. Sora" data-category="fantasy" data-tag="top">
+      <div class="badge">Top</div>
+      <div class="cover"><div class="cover-art">🌙</div></div>
+      <div class="info">
+        <h3>La Forêt des Lunes</h3>
+        <p class="meta">E. Sora • Fantasy</p>
+        <p class="desc">
+          Une aventure magique où chaque clairière cache un pacte, et chaque étoile un secret.
+        </p>
+        <div class="actions">
+          <button class="btn" type="button">Voir</button>
+          <button class="btn ghost favBtn" type="button">♡</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-title="HTML & CSS Zen" data-author="K. Bensaïd" data-category="dev" data-tag="new">
+      <div class="badge new">Nouveau</div>
+      <div class="cover"><div class="cover-art">💻</div></div>
+      <div class="info">
+        <h3>HTML & CSS Zen</h3>
+        <p class="meta">K. Bensaïd • Informatique</p>
+        <p class="desc">
+          Apprenez à créer des pages modernes et propres avec des astuces simples et efficaces.
+        </p>
+        <div class="actions">
+          <button class="btn" type="button">Voir</button>
+          <button class="btn ghost favBtn" type="button">♡</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-title="Les Villes Silencieuses" data-author="A. Kamel" data-category="roman" data-tag="free">
+      <div class="badge free">Gratuit</div>
+      <div class="cover"><div class="cover-art">🏙️</div></div>
+      <div class="info">
+        <h3>Les Villes Silencieuses</h3>
+        <p class="meta">A. Kamel • Roman</p>
+        <p class="desc">
+          Une enquête douce-amère dans une ville où les mots disparaissent… un par un.
+        </p>
+        <div class="actions">
+          <button class="btn" type="button">Voir</button>
+          <button class="btn ghost favBtn" type="button">♡</button>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 BookNomad • Catalogue dynamique</p>
+  </footer>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5e6cc, #e8d8b9, #d9c2a3);
+  color: #4e342e;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(255, 248, 230, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #5c4033;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #a67c52;
+  transition: 0.4s;
+}
+
+.nav a:hover::after,
+.nav .active::after {
+  width: 100%;
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* ===== SEARCH AREA ===== */
+.hero-search input,
+.hero-search select {
+  padding: 12px;
+  margin: 8px;
+  border-radius: 8px;
+  border: 1px solid #d7c2a5;
+  background: #fffaf0;
+  min-width: 220px;
+}
+
+.hero-search input:focus,
+.hero-search select:focus {
+  outline: none;
+  border-color: #b08968;
+  box-shadow: 0 0 10px rgba(176,137,104,0.4);
+}
+
+/* ===== CHIPS ===== */
+.chips {
+  margin-top: 15px;
+}
+
+.chip {
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  border: none;
+  background: #e6d5b8;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chip:hover {
+  background: #d2b48c;
+}
+
+.chip.active {
+  background: #b08968;
+  color: white;
+}
+
+/* ===== STATS ===== */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.num {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 14px;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 40px 60px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #b08968;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.badge.new {
+  background: #8c6a4d;
+}
+
+.badge.free {
+  background: #6d4c41;
+}
+
+/* Cover */
+.cover {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.cover-art {
+  font-size: 50px;
+}
+
+/* Info */
+.info h3 {
+  margin-bottom: 5px;
+}
+
+.meta {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #6d4c41;
+}
+
+.desc {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #b08968;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #8c6a4d;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #b08968;
+  border: 1px solid #b08968;
+}
+
+.btn.ghost:hover {
+  background: #b08968;
+  color: white;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #e6d5b8;
+  margin-top: 40px;
+}
+</style>
+
+
+</body>
+</html>
